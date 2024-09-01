@@ -1,0 +1,17 @@
+import type { Meta, StoryObj } from '@storybook/react';
+ 
+import { $componentName } from '$componentPath';
+ 
+const meta: Meta<typeof $componentName> = {
+  component: $componentName,
+};
+ 
+export default meta;
+type Story = StoryObj<typeof $componentName>;
+ 
+export const Primary: Story = {
+  args: {
+    primary: true,
+    label: '$componentName',
+  },
+};
