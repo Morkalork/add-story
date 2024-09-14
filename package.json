@@ -9,10 +9,35 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:add-story.addStoryTemplatePath"
+  ],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Add Story",
+      "properties": {
+        "add-story.storyTemplatePath": {
+          "type": "string",
+          "scope": "window",
+          "description": "Path to a story template file",
+          "default": "",
+          "format": "file"
+        },
+        "add-story.shouldAddArgsToStory": {
+          "type": "boolean",
+          "scope": "window",
+          "description": "Should add args to the story, if false will leave the property empty",
+          "default": true
+        }
+      }
+    },
     "commands": [
+      {
+        "command": "add-story.addStoryTemplatePath",
+        "title": "Add Story Template Path"
+      },
       {
         "command": "add-story.add",
         "title": "Add Story"
@@ -37,7 +62,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./ && cp ./src/templates/ ./out/templates/ -r",
+    "build": "tsc -p ./ && cp ./src/templates/ ./out/templates/ -r",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
@@ -47,7 +72,7 @@
     "@babel/parser": "^7.25.4",
     "@babel/types": "^7.25.4",
     "@types/mocha": "^10.0.7",
-    "@types/node": "20.x",
+    "@types/node": "^20.16.5",
     "@types/vscode": "^1.92.0",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.11.0",
@@ -57,6 +82,6 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "recast-babel-ts-helper": "^1.0.5"
+    "recast-babel-ts-helper": "^1.0.7"
   }
 }
