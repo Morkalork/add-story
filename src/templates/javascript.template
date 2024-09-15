@@ -1,0 +1,11 @@
+import { $componentName } from "$componentPath";
+ 
+export default {
+  component: $componentName,
+};
+ 
+export const Primary = {
+  args: {
+    $componentArgsWithValues
+  },
+};

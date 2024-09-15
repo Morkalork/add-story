@@ -56,9 +56,13 @@ export function activate(context: vscode.ExtensionContext) {
           filePath
         );
 
+        const isTypeScript = fileExtension === "ts" || fileExtension === "tsx";
         const results = parseFunctionOrClass(text);
         const templatePath =
-          storyTemplatePath || `${__dirname}/templates/standard.txt`;
+          storyTemplatePath ||
+          `${__dirname}/templates/${
+            isTypeScript ? "typescript" : "javascript"
+          }.template`;
         if (!fs.existsSync(templatePath)) {
           logger().error(`Template file not found: ${templatePath}`);
           return;

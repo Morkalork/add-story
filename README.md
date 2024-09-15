@@ -48,3 +48,24 @@ If you want to contribute, please visit the repo over at [GitHub](https://github
 ## Development
 
 To work with the repo, please start by installing the local dependencies (`npm install`). After that you can just launch the extension using F5 and try it out.
+
+## How do I publish a new version?
+
+Bump the version in package.json and run the following command:
+
+```bash
+# Build the app in /dist
+npm run build
+
+# Publish it to npmjs.org
+npm publish --access public
+
+# Tag it
+git tag -a vX.XX -m "What have you done!?"
+
+# Push (preferably a branch and not main)
+git push origin main
+
+# Push it all
+git push origin --tags
+```

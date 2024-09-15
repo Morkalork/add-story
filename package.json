@@ -2,6 +2,7 @@
   "name": "add-story",
   "displayName": "Add Story",
   "description": "Creates a story for a react component",
+  "icon": ".public/add-story.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.92.0"
